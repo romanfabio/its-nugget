@@ -1,4 +1,3 @@
-import 'dotenv/config'
 import fastify, { FastifyInstance } from "fastify";
 import addRoutes from './src/routes/router';
 import authMiddle from './src/middlewares/auth';
