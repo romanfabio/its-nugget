@@ -25,7 +25,7 @@ on:
 
 env:
   AZURE_WEBAPP_NAME: its-nugget    # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+  AZURE_WEBAPP_PACKAGE_PATH: './backend'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '16.x'                # set this to the node version to use
 
 permissions:
@@ -41,12 +41,12 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ env.NODE_VERSION }}
-        cache: 'npm'
 
     - name: yarn install, build, and run
       run: |
         yarn
         yarn run build
+      working-directory: backend
 
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v3
