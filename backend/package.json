@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "author": "Fabio Roman",
   "license": "MIT",
   "scripts": {
@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "dotenv": "^16.0.1",
     "fastify": "^4.1.0",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.7.0",

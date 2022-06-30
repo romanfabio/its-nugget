@@ -1,6 +1,10 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 import fastify, { FastifyInstance } from "fastify";
 import addRoutes from './src/routes/router';
 import authMiddle from './src/middlewares/auth';
+
 
 import pg from 'pg';
 import * as mongodb from 'mongodb';
@@ -31,7 +35,7 @@ const start = async () => {
 
         await useRedis(app);
 
-        await app.listen({port: parseInt(process.env.PORT as string)});
+        await app.listen({host:'0.0.0.0', port: parseInt(process.env.PORT as string)});
     } catch(x) {
         app.log.error(x);
         process.exit(1);
