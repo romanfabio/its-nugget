@@ -2,7 +2,6 @@ CREATE TABLE IF NOT EXISTS users (
     username VARCHAR(100) PRIMARY KEY,
     password VARCHAR(100) NOT NULL
 );
-INSERT INTO users(username,password) VALUES ('admin','admin');
 
 CREATE TABLE IF NOT EXISTS plants (
     id INTEGER PRIMARY KEY,
