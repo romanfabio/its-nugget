@@ -7,11 +7,12 @@ export default async function(request: FastifyRequest, reply: FastifyReply) {
 
     const server = request.server;
 
-    const token = request.headers.authorization;
-    if(!token) {
+    let token = request.headers.authorization;
+    if(!token || !token.toLowerCase().startsWith("bearer ")) {
         reply.code(401);
         throw "unauthorized";
     }
+    token = token.split(' ')[1];
 
     try {
         const decode = jwt.verify(token, process.env['SECRET_KEY'] as string);
