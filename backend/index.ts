@@ -9,6 +9,9 @@ import authMiddle from './src/middlewares/auth';
 import pg from 'pg';
 import * as mongodb from 'mongodb';
 import * as redis from 'redis';
+import fastifyStatic from '@fastify/static';
+import * as path from 'path';
+
 declare module 'fastify' {
     interface FastifyInstance {
         pg: pg.Client,
@@ -21,6 +24,11 @@ declare module 'fastify' {
 }
 
 const app = fastify({logger: process.env.DEBUG != undefined});
+
+app.register(fastifyStatic, {
+    root: path.join(__dirname, 'public'),
+    prefix: '/',
+});
 
 app.register(addRoutes, {prefix: 'api'});
 

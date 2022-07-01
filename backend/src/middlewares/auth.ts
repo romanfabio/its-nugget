@@ -2,7 +2,7 @@ import { FastifyReply, FastifyRequest } from "fastify";
 import * as jwt from 'jsonwebtoken';
 
 export default async function(request: FastifyRequest, reply: FastifyReply) {
-    if(request.url.endsWith("/login") || request.url.endsWith("/register"))
+    if(request.url.endsWith("/login") || request.url.endsWith("/register") || (!request.url.includes("/api/")))
         return;
 
     const server = request.server;
