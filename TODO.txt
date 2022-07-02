@@ -1,0 +1,3 @@
+APP SERVICE: Modifica il comando di startup in "node dist/index.js"
+COSMOSDB: Crea un indice del campo timestamp altrimenti non è possibile ordinare per data
+BACKEND: la build del frontend va posizionata all'interno di <backend>/dist/public
