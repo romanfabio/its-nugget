@@ -41,8 +41,6 @@ const start = async () => {
 
         await useMongo(app);
 
-        await useRedis(app);
-
         await app.listen({host:'0.0.0.0', port: parseInt(process.env.PORT as string)});
     } catch(x) {
         app.log.error(x);
